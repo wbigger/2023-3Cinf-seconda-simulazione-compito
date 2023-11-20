@@ -12,208 +12,42 @@ int main()
 
     int n_punti_test = 0;
 
-    /** Test funzione appartiene_punto_retta */
+    /** Test funzione calcola_velocita_rett_unif */
     {
-        int a = 0, b = 0, c = 0, px = 0, py = 0;
-        bool appartiene = false;
+        int s,t,v;
 
         // Test
-        a = 2;
-        b = 1;
-        c = -5;
-        px = 2;
-        py = 1;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == true);
+        s = 100.0F;
+        t = 1.0F;
+        v = calcola_velocita_rett_unif(s,t);
+        printf("La velocità per s=%f m, t=%f s è: %f m/s\n", s,t,v);
+        assert(v == 100.0F);
         n_punti_test += 1;
         printf("Hai completato %d punto\n", n_punti_test);
         printf("\n");
 
         // Test
-        a = 2;
-        b = 1;
-        c = -5;
-        px = 1;
-        py = 1;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == false);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 2;
-        b = 2;
-        c = 0;
-        px = -1;
-        py = 1;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == true);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 2;
-        b = 1;
-        c = -5;
-        px = 0;
-        py = 0;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == false);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 0;
-        b = 0;
-        c = 0;
-        px = 1;
-        py = 1;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == false);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 1;
-        b = 0;
-        c = 0;
-        px = 0;
-        py = 1;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == true);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 0;
-        b = 1;
-        c = 0;
-        px = 1;
-        py = 0;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == true);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 0;
-        b = 0;
-        c = 0;
-        px = 0;
-        py = 0;
-        appartiene = appartiene_punto_retta(a, b, c, px, py);
-        printf("Il punto P(%d,%d) appartiene alla retta %dx%+dy%+d=0: %s\n", px, py, a, b, c, appartiene ? "true" : "false");
-        assert(appartiene == false);
+        s = 100.0F;
+        t = 0.0F;
+        v = calcola_velocita_rett_unif(s,t);
+        printf("La velocità per s=%f m, t=%f s è: %f m/s\n", s,t,v);
+        assert(v == INFINITY);
         n_punti_test += 1;
         printf("Hai completato %d punto\n", n_punti_test);
         printf("\n");
     }
 
-    /** Test funzione calcola_coefficiente_angolare*/
+    /** Test funzione calcola_acc_unif*/
     {
-        float a = 0.0F;
-        float b = 0.0F;
-        float c = 0.0F;
-        float coefficiente = 0.0F;
-        const float epsilon = 0.00001F;
+        int acc,v0,t,v;
 
         // Test
-        a = 2.0F;
-        b = 1.0F;
-        c = -5.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( (coefficiente-2.0F) < epsilon);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 1.0F;
-        b = 2.0F;
-        c = 5.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( (coefficiente-0.5F) < epsilon);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 1.0F;
-        b = 1.0F;
-        c = 0.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( (coefficiente-1.0F) < epsilon);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 0.0F;
-        b = 1.0F;
-        c = 1.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( (coefficiente-0) < epsilon);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 1.0F;
-        b = 0.0F;
-        c = -1.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( coefficiente < -1e10 );
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = -1.0F;
-        b = 0.0F;
-        c = 4.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( coefficiente > 1e10 );
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 0.0F;
-        b = 0.0F;
-        c = 4.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( isnan(coefficiente) == true);
-        n_punti_test += 1;
-        printf("Hai completato %d punto\n", n_punti_test);
-        printf("\n");
-
-        // Test
-        a = 0.0F;
-        b = 0.0F;
-        c = 0.0F;
-        coefficiente = calcola_coefficiente_angolare(a, b, c);
-        printf("Il coefficiente angoloare della retta %0.1fx%+0.1fy%+0.1f=0: %0.3f\n", a, b, c, coefficiente);
-        assert( isnan(coefficiente) == true );
+        acc = 100.0F;
+        v0 = 0.0F;
+        t = 1.0F;
+        v = calcola_acc_unif(acc,v0,t);
+        printf("La velocità per acc=%f m/s2, v0=%f m/s, t = %f s è: %f m/s\n", acc,v0,t,v);
+        assert(v == 100.0F);
         n_punti_test += 1;
         printf("Hai completato %d punto\n", n_punti_test);
         printf("\n");
