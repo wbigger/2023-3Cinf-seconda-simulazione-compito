@@ -1,0 +1,19 @@
+build
+
+# executables
+a.out
+main
+fisica 
+
+# objects
+*.o
+
+# soluzione
+main.soluzione
+main.soluzione.c
+
+# mac specific
+*.dSYM/
+.DS_Store
+
+# Do not add .vscode folder!
