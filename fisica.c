@@ -9,4 +9,10 @@ float calcola_velocita_moto_rett_unif(float s, float t)
     return s;
 }
 
-// ...
+float calcola_velocita_moto_unif_acc(float acc, float v0, float t) {
+    return 0.0F;
+}
+
+void plot_velocita_moto_unif_acc(float acc, float v0) {
+    return;
+}
