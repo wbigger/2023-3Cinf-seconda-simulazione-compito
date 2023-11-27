@@ -9,11 +9,11 @@ fisica
 *.o
 
 # soluzione
-main.soluzione
 main.soluzione.c
+fisica.soluzione.c
 
 # mac specific
 *.dSYM/
 .DS_Store
 
-# Do not add .vscode folder!
+# Do not add .vscode folder to .gitignore! We need it for compiling
