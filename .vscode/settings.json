@@ -1,8 +1,0 @@
-{
-    "cmake.configureOnOpen": false,
-    "files.associations": {
-        "*.gs": "javascript",
-        "math.h": "c",
-        "stdbool.h": "c"
-    }
-}

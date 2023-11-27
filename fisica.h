@@ -8,13 +8,13 @@
  considerando un moto rettilineo uniforme
  @return la velocità del corpo
 */
-float calcola_velocita_rett_unif(float s, float t);
+float calcola_velocita_moto_rett_unif(float s, float t);
 
 /** @brief Calcola la velocità in moto uniformemente accelerato
  Calcola la velocità di un corpo in un moto uniformemente accelerato,
  data l'accelerazione (costante), la velocità iniziale ed il tempo trascorso
  @return la velocità del corpo
 */
-float calcola_acc_unif(float acc, float v0, float t);
+float calcola_accelerazione_moto_unif_acc(float acc, float v0, float t);
 
 #endif  /* _FISICA_H_ */
